@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAT Inspect</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <!-- Login Section -->
+    <div id="login-section">
+      <h2 class="text-center">CAT Inspect Login</h2>
+      <form id="login-form" class="mt-4">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+      </form>
+    </div>
+
+    <!-- Inspection Form -->
+    <div id="inspection-form" style="display: none;">
+      <h2 class="text-center">CAT Inspection</h2>
+      <form id="inspection-data" class="mt-4">
+        <!-- Language Selector -->
+        <div class="mb-3">
+          <label for="language" class="form-label">Language</label>
+          <select class="form-select" id="language">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="ar">Arabic</option>
+            <option value="hi">Hindi</option>
+            <option value="ru">Russian</option>
+          </select>
+        </div>
+
+        <!-- Header Section -->
+        <div class="form-section">
+          <h3>Header</h3>
+          <div class="mb-3">
+            <label for="truckSerial" class="form-label">Truck Serial Number</label>
+            <input type="text" class="form-control" id="truckSerial" pattern="^730[0-9A-Z]{4,8}$" required>
+          </div>
+          <div class="mb-3">
+            <label for="truckModel" class="form-label">Truck Model</label>
+            <select class="form-select" id="truckModel" required>
+              <option value="730">730</option>
+              <option value="730 EJ">730 EJ</option>
+              <option value="736">736</option>
+              <option value="745">745</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="inspectorName" class="form-label">Inspector Name</label>
+            <input type="text" class="form-control" id="inspectorName" required>
+          </div>
+          <!-- Add other header fields: Inspection ID (auto-generated later), Employee ID, Date/Time, Location, Geo Coordinates, Service Meter Hours, Customer Name, CAT Customer ID, Signature -->
+        </div>
+
+        <!-- Tires Section -->
+        <div class="form-section">
+          <h3>Tires</h3>
+          <div class="mb-3">
+            <label for="leftFrontPressure" class="form-label">Left Front Pressure (PSI)</label>
+            <input type="number" class="form-control" id="leftFrontPressure" min="0" max="100" required>
+          </div>
+          <div class="mb-3">
+            <label for="leftFrontCondition" class="form-label">Left Front Condition</label>
+            <select class="form-select" id="leftFrontCondition" required>
+              <option value="Good">Good</option>
+              <option value="Ok">Ok</option>
+              <option value="Needs Replacement">Needs Replacement</option>
+            </select>
+          </div>
+          <!-- Add Right Front, Left Rear, Right Rear fields similarly -->
+          <div class="mb-3">
+            <label for="tireSummary" class="form-label">Tire Summary</label>
+            <textarea class="form-control" id="tireSummary" maxlength="1000"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="tireImages" class="form-label">Tire Images</label>
+            <input type="file" class="form-control" id="tireImages" multiple accept="image/*">
+          </div>
+        </div>
+        <!-- Add other sections (Battery, Exterior, Brakes, Engine, Voice of Customer) similarly -->
+
+        <button type="submit" class="btn btn-success w-100 mt-3">Submit Inspection</button>
+      </form>
+      <button id="download-pdf" class="btn btn-primary w-100 mt-3" style="display: none;">Download PDF</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="js/app.js" type="module"></script>
+
+</body>
+</html>

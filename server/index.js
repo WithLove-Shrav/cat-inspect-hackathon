@@ -12,11 +12,11 @@ app.use(express.json());
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.FIREBASE_APP_ID
+  apiKey: "AIzaSyAsXnNxF9ptqTWDSUHz51tkfF2-oLCbz9I",
+  authDomain: "shravyadasshravya.firebaseapp.com",
+  projectId: "shravyadasshravya",
+  messagingSenderId: "1011795880766",
+  appId: "1:1011795880766:web:cb4413e5f5edf77fb29a6f"
 };
 
 // Initialize Firebase
@@ -26,9 +26,9 @@ const auth = getAuth(firebaseApp);
 
 // Initialize Cloudinary
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
+  cloud_name: "ddj17ecaj",
+  api_key: "648693838261631",
+  api_secret: "XxrPrdfaPRkQ34n-JPQ-BuidhCA"
 });
 
 // Test endpoint
